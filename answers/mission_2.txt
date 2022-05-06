@@ -1,0 +1,32 @@
+For Deposit and Withdrawal, we can have to buttons namely "Deposit" and "Withdraw" opposite to "Past transactions", right above the transactions table.
+
+Deposit Flow:
+When the user clicks the "Deposit" button on the homepage:
+1. User should be taken to the deposit page on the "/deposits/new" route.
+2. User should see their account information.
+3. User should see a form to input card details and deposit funds to the current account.
+4. Users should see third-party integrations e.g. Google Pay, Apple Pay, etc., (Optional)
+5. User should be able to deposit funds via methods mentioned in 3 and 4.
+
+To simplify the Deposit flow:
+We can use 3rd party payment processors like "Stripe" which allow us to link payment methods to the users.
+This also allows us to pre-fill payment method information in our form or charge the user directly on a button click (if the user permits that).
+We can also have multiple payment methods attached to a customer to allow them to quickly switch between them in case funds are low in any account.
+
+Withdrawal Flow:
+When the user clicks the "Withdraw" button on the homepage:
+1. User should be taken to the withdrawal page on the "/withdrawals/new" route.
+2. User should see their account information.
+3. User should see a form to input bank account information.
+4. Users should be able to add beneficiaries so that they don't have to enter their account information again and again.
+5. User should be able to choose the beneficiary to whom the amount will be transferred.
+
+To simplify the Withdrawal flow:
+We can use "Wise" which allows us to create dynamic forms for transferring money in many different countries.
+Wise also allows us to convert from one currency to another while transferring.
+This will save us from the trouble of having different forms for every different currency/country.
+
+Security Concerns:
+A major security concern is the payment information, we should not store this information directly in our database.
+We can use Stripe/Wise to do that for us and instead we can store the reference to the payment method on Stripe/Wise in our database.
+This saves us from accidentally exposing our clients' payment information.

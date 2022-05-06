@@ -1,0 +1,19 @@
+To debug Dr. Horrible's issue:
+
+First, we need to confirm if money was deducted from Dr. Horrible's bank account. There can be two possibilities here:
+1. Money was deducted but doesn't show up in our system.
+2. Money was not deducted and doesn't show up in our system.
+
+Considering the above two cases:
+
+We need to check Dr. Horrible's transactions in our system and find all the transactions done in favor of Startup X.
+If the transaction is found then we should be able to see the status of the transaction i.e. pending or failed.
+
+If the transaction is not found then we might need to check with our payment processor e.g. If we are using Stripe/Wise
+we can check our Stripe/Wise dashboard to see if there are any transactions done by Dr. Horrible to Startup X and what is
+the status of that transaction.
+
+If a transaction is found then we can contact the dev team to pull that transaction into our system so that the customer can see it.
+
+If the transaction is still not found then it may be possible that something was wrong in our system, we will then need to
+check our error notifier (e.g. Honeybadger) for any reports. This should be assigned to the dev team to look at so that they can come up with an answer and fix the issue.
